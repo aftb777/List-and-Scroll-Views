@@ -8,14 +8,30 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State private var Fruits : [Shopping_Model] = [
+        Shopping_Model(name: "Apple", price: 50),
+        Shopping_Model(name: "Orange", price: 40),
+        Shopping_Model(name: "Banana", price: 30),
+        Shopping_Model(name: "Mango", price: 90)
+    ]
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            List(Fruits) { fruit in
+                HStack {
+                    Text(fruit.name)
+                        .fontWeight(.bold)
+                    
+                    Spacer()
+                    
+                    Text("\(fruit.price)")
+                        .fontWeight(.bold)
+                }
+                .padding(.horizontal)
+            }
         }
-        .padding()
+        
+
     }
 }
 
