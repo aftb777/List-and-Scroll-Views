@@ -17,6 +17,8 @@ struct ContentView: View {
     ]
     var body: some View {
         VStack {
+            
+            // List with array
             List(Fruits) { fruit in
                 HStack {
                     Text(fruit.name)
@@ -28,6 +30,35 @@ struct ContentView: View {
                         .fontWeight(.bold)
                 }
                 .padding(.horizontal)
+                
+            }
+            
+            // List with ForEach Loop
+            List {
+                ForEach(Fruits) { fruit in
+                    HStack {
+                        Text(fruit.name)
+                            .fontWeight(.bold)
+                        
+                        Spacer()
+                        
+                        Text("\(fruit.price)")
+                            .fontWeight(.bold)
+                    }
+                        
+                }
+            }
+            
+            // Random List or Unstructured List
+            List {
+                Text("Hello World")
+                Image(systemName: "person.fill")
+                Button {
+                    
+                } label: {
+                    Text("Button")
+                }
+
             }
         }
         
